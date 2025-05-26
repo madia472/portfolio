@@ -77,7 +77,4 @@ INSERT INTO projects (title, description, technologies, link, grade, in_producti
 
 -- Insertion des expériences
 INSERT INTO experiences (title, company, location, start_date, end_date, description, type) VALUES
-('Stagiaire Développeur Web', 'Santigui du Moulin', 'Rennes, France', '2025-05-01', '2025-07-01', 'Développement du site e-commerce de l''entreprise : affichage dynamique, prise de commande, gestion des stocks. Stack : Angular + Spring Boot.', 'Stage'),
-('Employé polyvalent / Livreur', 'Speed Burger, Domino''s Pizza', 'Rennes', '2021-10-01', '2024-05-31', 'Livraison de commandes, contact client, rigueur et efficacité dans des environnements rapides.', 'Job étudiant'),
-('Agent de sécurité incendie (SSIAP 1)', 'AR2S, Securiteam, Proguard', 'France', '2024-01-01', '2025-05-01', 'Surveillance des bâtiments, prévention des risques, interventions en cas d''urgence.', 'Job étudiant'),
-('Commis d''épicerie', 'IGA', 'Québec, Canada', '2024-11-01', '2025-01-15', 'Réapprovisionnement des rayons, gestion de stock, service client.', 'Job étudiant'); 
+('Stagiaire Développeur Web', 'Santigui du Moulin', 'Rennes, France', '2025-05-01', '2025-07-01', 'Développement du site e-commerce de l''entreprise : affichage dynamique, prise de commande, gestion des stocks. Stack : Angular + Spring Boot.', 'Stage'); 
