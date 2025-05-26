@@ -1,0 +1,45 @@
+# Dépendances
+node_modules
+npm-debug.log
+
+# Fichiers de build
+dist
+build
+.angular
+target/
+*.class
+*.jar
+!target/*.jar
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+application-*.properties
+application-*.yml
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de développement
+.git
+.gitignore
+README.md
+*.md
+.vscode
+.idea
+*.iml
+.settings/
+.project
+.classpath
+.factorypath
+
+# Fichiers Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Logs
+logs
+*.log 

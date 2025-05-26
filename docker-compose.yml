@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend/alpha_dklg
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend/alpha_dklg:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=development
+      - API_URL=${API_URL}
+      - LINKEDIN_URL=${LINKEDIN_URL}
+      - GITHUB_URL=${GITHUB_URL}
+      - ASSETS_BASE_URL=${ASSETS_BASE_URL}
+      - PROFILE_PICTURE_PATH=${PROFILE_PICTURE_PATH}
+      - CV_PATH=${CV_PATH}
+
+  backend:
+    build:
+      context: ./backend/alpha_dklg
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/alpha_dklg/src:/app/src
+      - ./backend/alpha_dklg/pom.xml:/app/pom.xml
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - PORT=${PORT}
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}
+      - POSTGRES_URL=${POSTGRES_URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data: 

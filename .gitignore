@@ -1,0 +1,10 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Angular environment files
+frontend/alpha_dklg/src/environments/environment.ts
+
+# Other ignores 
